@@ -1,5 +1,7 @@
 package com.t3h.testcache;
 
+import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -23,14 +25,16 @@ import java.lang.reflect.Type;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
 
     private String TAG = "TEST_CACHE_DATA";
     private String TESTCACHE = "testcache";
     private AppPref appPref;
     private CacheAdapter adapter;
     private RecyclerView lvCache;
-    List<AppInfo> appInfos;
+    private List<AppInfo> appInfos;
+    private SwipeRefreshLayout mSrlLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +42,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         AndroidNetworking.initialize(getApplicationContext());
+        mSrlLayout = findViewById(R.id.swiperefresh);
+        mSrlLayout.setOnRefreshListener(this);
         appPref = new AppPref(this, TESTCACHE);
         if (appPref.inValidCache() || TextUtils.isEmpty(appPref.getCacheData())) {
             requestAPI();
-            Log.i(TAG, "get data from API");
+
         } else {
             showData();
             Log.i(TAG, "get data from cache");
@@ -57,7 +63,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void requestAPI() {
-        AndroidNetworking.get("https://pastebin.com/raw/smFRyHLd")
+        Log.i(TAG, "get data from API");
+        AndroidNetworking.get("https://pastebin.com/raw/qWGmGVmG")
                 .setTag(this)
                 .setPriority(Priority.LOW)
                 .build()
@@ -77,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-    public void showData(String data) {
+    private void showData(String data) {
         Type type = new TypeToken<List<AppInfo>>() {
         }.getType();
         appInfos = new Gson().fromJson(data, type);
@@ -85,13 +92,21 @@ public class MainActivity extends AppCompatActivity {
         Log.i(TAG, "showData: " + appInfos.toString());
     }
 
-    public void showData() {
+    private void showData() {
         appInfos = appPref.getCacheData1();
-
         Log.i(TAG, "showData: array" + appInfos.get(1).getAppId());
     }
 
-
+    @Override
+    public void onRefresh() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                requestAPI();
+                mSrlLayout.setRefreshing(false);
+            }
+        }, 1000);
+    }
 }
 
 
