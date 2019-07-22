@@ -10,46 +10,44 @@
         android:layout_marginLeft="@dimen/dp_5"
         android:layout_marginTop="@dimen/dp_5"
         android:layout_marginRight="@dimen/dp_5"
-        android:layout_marginBottom="@dimen/dp_5"
-        >
+        android:layout_marginBottom="@dimen/dp_5">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
             android:layout_marginTop="@dimen/dp_10"
             android:layout_marginBottom="@dimen/dp_10"
-            >
-        <ImageView
-            android:id="@+id/im_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="5dp"
-            android:src="@drawable/ic_launcher_background"
-            />
+            android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginLeft="@dimen/dp_10">
+            <ImageView
+                android:id="@+id/im_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/ic_launcher_background" />
 
-            <TextView
-                android:id="@+id/tv_app_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="App name"
-                android:textStyle="bold"
-                android:textSize="@dimen/sp_16" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tv_developer_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="name"
-                android:layout_marginTop="@dimen/dp_5"
-                 />
+                <TextView
+                    android:id="@+id/tv_app_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="App name"
+                    android:textSize="@dimen/sp_16"
+                    android:textStyle="bold" />
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_developer_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:text="name" />
+
+            </LinearLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>
 </LinearLayout>

@@ -10,7 +10,6 @@ import com.t3h.testcache.model.AppInfo;
 import java.lang.reflect.Type;
 import java.util.List;
 
-
 public class AppPref {
 
     private SharedPreferences pref;
@@ -44,7 +43,7 @@ public class AppPref {
     }
 
     public boolean inValidCache() {
-        return System.currentTimeMillis() - getLastTimeCache() > 5 * 60 * 1000;
+        return System.currentTimeMillis() - getLastTimeCache() > 10 * 1000;//5 * 60 * 1000;
     }
 
     public List<AppInfo> getCacheData1() {
@@ -52,6 +51,5 @@ public class AppPref {
         }.getType();
         return new Gson().fromJson(pref.getString(KEY_CACHE_DATA, ""), type);
     }
-
 
 }
