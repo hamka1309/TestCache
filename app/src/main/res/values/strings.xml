@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TestCache</string>
+    <string name="obs_skip_ad" translatable="false">Skip Ad</string>
 </resources>

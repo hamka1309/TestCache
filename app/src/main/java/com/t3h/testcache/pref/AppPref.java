@@ -22,16 +22,14 @@ public class AppPref {
         this.pref = context.getSharedPreferences(cacheName, Context.MODE_PRIVATE);
     }
 
-    private void put(String namePref, String data) {
-        this.pref.edit().putString(namePref, data).apply();
-    }
-
-    public String getCacheData() {
-        return pref.getString(KEY_CACHE_DATA, "");
+    public List<AppInfo> getDataFromCache() {
+        Type type = new TypeToken<List<AppInfo>>() {
+        }.getType();
+        return new Gson().fromJson(pref.getString(KEY_CACHE_DATA, ""), type);
     }
 
     public void setCacheData(String data) {
-        put(KEY_CACHE_DATA, data);
+        this.pref.edit().putString(KEY_CACHE_DATA, data).apply();
     }
 
     public void setLastTimeCache(long cacheTime) {
@@ -43,13 +41,8 @@ public class AppPref {
     }
 
     public boolean inValidCache() {
-        return System.currentTimeMillis() - getLastTimeCache() > 10 * 1000;//5 * 60 * 1000;
+        return System.currentTimeMillis() - getLastTimeCache() > 5*60 * 1000;
     }
 
-    public List<AppInfo> getCacheData1() {
-        Type type = new TypeToken<List<AppInfo>>() {
-        }.getType();
-        return new Gson().fromJson(pref.getString(KEY_CACHE_DATA, ""), type);
-    }
 
 }

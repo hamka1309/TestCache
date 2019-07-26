@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/native_ad_container_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <io.supercharge.shimmerlayout.ShimmerLayout
+        android:id="@+id/native_ad_root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/native_ad_content_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_marginRight="@dimen/dp10"
+            android:gravity="center_horizontal">
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/native_ad_card_view_content_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp2"
+                android:layout_marginTop="@dimen/dp20"
+                android:layout_marginRight="@dimen/dp2"
+                android:layout_marginBottom="@dimen/dp2"
+                app:cardCornerRadius="@dimen/dp10">
+
+                <RelativeLayout
+                    android:id="@+id/native_ad_relative_content_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <FrameLayout
+                        android:id="@+id/native_ad_frame_media_view_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/native_ad_mediaview_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:padding="@dimen/dp4">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/unnamed_pannerr"
+                                app:layout_constraintDimensionRatio="H,16:9"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_chainStyle="spread_inside" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <FrameLayout
+                            android:id="@+id/native_ad_ad_choice_layout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_gravity="right|bottom"
+                            tools:layout_height="@dimen/dp20"
+                            tools:layout_width="@dimen/dp30">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/obs_ic_close" />
+                        </FrameLayout>
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/native_ad_ad_icon_layout"
+                        android:layout_width="@dimen/dp64"
+                        android:layout_height="@dimen/dp64"
+                        android:layout_below="@+id/native_ad_frame_media_view_layout"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:contentDescription="Advertisement"
+                        tools:background="#ccc"
+                        tools:ignore="HardcodedText">
+
+                        <ImageButton
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/unnamed" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/native_ad_ad_icon_layout"
+                        android:layout_marginStart="@dimen/dp30"
+                        android:layout_marginTop="@dimen/dp24"
+                        android:layout_marginEnd="@dimen/dp2"
+                        android:layout_marginBottom="@dimen/dp10"
+                        android:layout_toStartOf="@+id/native_ad_title_view"
+                        android:background="#000"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/dp5"
+                        android:paddingRight="@dimen/dp5"
+                        android:text="AD"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/sp10"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText,RelativeOverlap" />
+
+                    <TextView
+                        android:id="@+id/native_ad_title_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/native_ad_ad_icon_layout"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginStart="@dimen/dp2"
+                        android:layout_marginTop="@dimen/dp16"
+                        android:layout_marginEnd="@dimen/dp30"
+                        android:layout_marginBottom="@dimen/dp10"
+
+                        android:maxLines="2"
+                        android:text="Garena Free Fire"
+                        android:textColor="#7E7E7E"
+                        android:textSize="@dimen/sp24"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/native_ad_body_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/native_ad_title_view"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/dp20"
+                        android:layout_marginTop="@dimen/dp2"
+                        android:layout_marginRight="@dimen/dp20"
+                        android:layout_marginBottom="@dimen/dp16"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:text="Share and discover the world on Instagram"
+                        android:textColor="#9B9B9B"
+                        tools:ignore="HardcodedText"
+                        tools:text="This is description" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/native_ad_cta_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp50"
+                android:layout_below="@id/native_ad_card_view_content_layout"
+                android:layout_marginLeft="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp20"
+                android:layout_marginRight="@dimen/dp10"
+                android:background="@color/obs_ad_cta"
+                android:gravity="center"
+                android:padding="@dimen/dp12"
+                android:text="Install Now"
+                android:textAllCaps="false"
+                android:textColor="@color/obs_ad_cta_text"
+                android:textSize="@dimen/dp20"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </io.supercharge.shimmerlayout.ShimmerLayout>
+
+</LinearLayout>

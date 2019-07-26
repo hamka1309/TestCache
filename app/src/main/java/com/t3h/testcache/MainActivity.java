@@ -1,10 +1,10 @@
 package com.t3h.testcache;
 
 import android.os.Handler;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.t3h.testcache.adapter.CacheAdapter;
 import com.t3h.testcache.model.AppInfo;
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                loadData.requestAPI();
+                loadData.requestAPI(MainActivity.this);
                 mSrlLayout.setRefreshing(false);
             }
         }, 1000);
